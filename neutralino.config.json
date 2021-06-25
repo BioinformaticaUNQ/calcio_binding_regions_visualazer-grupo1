@@ -1,5 +1,5 @@
 {
-  "applicationId": "js.neutralino.sample",
+  "applicationId": "ar.edu.unq.cbrv",
   "port": 0,
   "defaultMode": "window",
   "enableHTTPServer": true,
@@ -12,14 +12,14 @@
   "modes": {
     "window": {
       "title": "CBRV",
-      "width": 800,
-      "height": 500,
+      "width": 1200,
+      "height": 600,
       "minWidth": 400,
       "minHeight": 250,
       "fullScreen": false,
       "alwaysOnTop": false,
       "icon": "/resources/icons/appIcon.png",
-      "enableInspector": true,
+      "enableInspector": false,
       "borderless": false,
       "maximize": false
     },
