@@ -18,7 +18,9 @@ La idea del software es permitir la visualización de regiones conservadas de un
 
 #### Instrucciones
 
-`$ pip ?`
+```bash
+pip install -r requisitos
+```
 
 #### EPICAS DEL PROYECTO
 - ***Ingreso estructura PDB***
@@ -30,13 +32,13 @@ La idea del software es permitir la visualización de regiones conservadas de un
 - ***Visualizar***
   - Estructura problema
   - Regiones de calcio
-  - Energia union al metal 
+  - Energia union al metal
 
 
 
 ### BioInformatica UNQ Grupo 1
-#### Miembros: 
+#### Miembros:
 - Diaz
-- German 
+- German
 - Pato
 - Sabaliauskas
