@@ -15,22 +15,49 @@
       <div class="container-fluid">
         <div class="row">
 
-          <div class="col-md-12 text-center">
-            <h1>Calcio Binding Regions Visualizer</h1>
+          <div class="col-md-12" id="separator"></div>
+          <div class="col-md-10 text-center">
+            <div class="transparent-style">
+              <h1>Calcio Binding Regions Visualizer</h1>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="transparent-style">
+
+            </div>
           </div>
 
-          <div class="col-md-3">
-            <button class="button col-12" onclick="window.lynxCBRV.openPDB();">Select your PDB File</button>
-          </div>
-          <div class="col-md-6">
-            <input
-              type="text"
-              data-role="input"
-              disabled
-              id="divFilePath" />
-          </div>
-          <div class="col-md-3">
-            <button class="button col-12">Check PDB</button>
+          <div class="col-12">
+            <div class="container transparent-style">
+              <div class="row">
+
+                <div class="col-md-3">
+                  <button class="command-button col-12" onclick="window.lynxCBRV.openPDB();">
+                    <span class="mif-folder icon"></span>
+                    <span class="caption">
+                      PDB File
+                    </span>
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    data-role="input"
+                    class="divFilePath"
+                    disabled
+                    id="divFilePath" />
+                </div>
+                <div class="col-md-3">
+                  <button class="command-button col-12">
+                    <span class="mif-checkmark icon"></span>
+                    <span class="caption">
+                      Check PDB
+                    </span>
+                  </button>
+                </div>
+
+              </div>
+            </div>
           </div>
 
         </div>
