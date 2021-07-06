@@ -78,6 +78,10 @@ function toggleDarkMode(){
   }
 }
 
+function changePrimaryColor(color){
+  document.documentElement.style.setProperty('--primary-color', String(color));
+}
+
 // Secuencia de inicio
 Neutralino.init();
 setPathInfo();
