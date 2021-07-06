@@ -18,9 +18,11 @@
               <h1>Calcio Binding Regions Visualizer</h1>
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 text-center">
             <div class="transparent-style">
-
+              <a href="#" onclick="Metro.dialog.open('#optionsDialog')">
+                <h1 class="config" ><span class="mif-cog"></span></h1>
+              </a>
             </div>
           </div>
 
@@ -58,6 +60,35 @@
             </div>
           </div>
 
+        </div>
+      </div>
+
+      <div class="dialog" data-role="dialog" id="optionsDialog">
+        <div class="dialog-title text-center">Options</div>
+        <div class="dialog-content container">
+          <div class="row">
+            <div class="col-9">
+              Dark Mode:
+            </div>
+            <div class="col-3 text-center">
+              <input
+                class="switch"
+                id="darkIndicator"
+                type="checkbox"
+                onchange="toggleDarkMode();"
+                data-role="switch"
+                checked
+                data-off="off"
+                data-on="on" />
+            </div>
+            <div class="col-md-12" id="separator"></div>
+            <div class="col-12 text-center">
+              Principal Color
+            </div>
+          </div>
+        </div>
+        <div class="dialog-actions text-venter">
+          <button class="button js-dialog-close">Ok</button>
         </div>
       </div>
 

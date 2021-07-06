@@ -1,4 +1,5 @@
 var pdbFile = null;
+const darkModIndicator = document.getElementById('darkIndicator');
 
 window.lynxCBRV = {
     showInfo: () => {
@@ -67,7 +68,16 @@ function setPathInfo(){
   }
 }
 
-// Secuencia de inicio
+function toggleDarkMode(){
+  if (darkIndicator.checked) {
+    document.documentElement.style.setProperty('--bg-color', 'rgba(0,0,0,0.8)');
+    document.documentElement.style.setProperty('--font-color', '#FFF');
+  }else {
+    document.documentElement.style.setProperty('--bg-color', 'rgba(255,255,255,0.8)');
+    document.documentElement.style.setProperty('--font-color', '#000');
+  }
+}
 
+// Secuencia de inicio
 Neutralino.init();
 setPathInfo();
