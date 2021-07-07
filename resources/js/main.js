@@ -33,10 +33,10 @@ window.lynxCBRV = {
           div.innerHTML=`
           <div class="info-box success col-12" style="position:relative;">
             <div class="info-box-content">
-              Your PDB file appears to be fine, we can get on with it.
+              `.concat(resp.response).concat(`
             </div>
           </div>
-          `
+          `)
         }else{
           div.innerHTML=`
           <div class="info-box alert col-12" style="position:relative;">

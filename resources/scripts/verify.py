@@ -12,15 +12,15 @@ try:
         myPDB = strict_parser.get_structure('name', path)
         print(json.dumps({
             "code":200,
-            "response": myPDB
+            "response": "OK: PDB file is correct"
         }))
     except:
         print(json.dumps({
             "code":204,
-            "response":"ERROR: El formato del PDB no es correcto"
+            "response":"ERROR: The PDB format is not correct"
         }))
 except:
     print(json.dumps({
         "code":204,
-        "response":"ERROR: Debe ingresar path del PDB"
+        "response":"ERROR: You must enter the path of the PDB"
     }))
