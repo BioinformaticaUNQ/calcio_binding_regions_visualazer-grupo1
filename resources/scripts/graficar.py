@@ -1,3 +1,4 @@
+import sys
 import pymol
 
 # Call the function below before using any PyMOL modules.
@@ -9,5 +10,19 @@ pymol.finish_launching()
 
 from pymol import cmd
 
-cmd.load("$PYMOL_PATH/test/dat/pept.pdb")
-cmd.show("sticks")
+try:
+    path = sys.argv[1]
+    try:
+        myPDB = strict_parser.get_structure('name', path)
+        cmd.load(path)
+        cmd.show("sticks")
+    except:
+        print(json.dumps({
+            "code":204,
+            "response":"ERROR: The PDB format is not correct"
+        }))
+except:
+    print(json.dumps({
+        "code":204,
+        "response":"ERROR: You must enter the path of the PDB"
+    }))
