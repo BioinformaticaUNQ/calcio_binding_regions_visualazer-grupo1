@@ -28,7 +28,6 @@ window.lynxCBRV = {
           command: com
         });
         let resp = JSON.parse(response.output);
-        console.log(resp)
         if (resp.code == 200) {
           div.innerHTML=`
           <div class="info-box success col-12" style="position:relative;">
@@ -54,6 +53,13 @@ window.lynxCBRV = {
       });
       pdbFile = response.selectedEntry;
       setPathInfo();
+    },
+    openInPyMol : async () =>{
+      let com = 'python resources/scripts/graficar.py '.concat(pdbFile);
+      console.log(com);
+      let response = await Neutralino.os.execCommand({
+        command: com
+      });
     }
 };
 
