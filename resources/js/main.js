@@ -22,7 +22,7 @@ window.lynxCBRV = {
         </div>
         `
       }else{
-        let com = 'python resources/scripts/verify.py '.concat(pdbFile);
+        let com = 'python3 resources/scripts/verify.py '.concat(pdbFile);
         let response = await Neutralino.os.execCommand({
           command: com
         });
@@ -54,19 +54,19 @@ window.lynxCBRV = {
       setPathInfo();
     },
     openInPyMol : async () =>{
-      let com = 'python resources/scripts/openPymol.py '.concat(pdbFile);
+      let com = 'python3 resources/scripts/openPymol.py '.concat(pdbFile);
       let response = await Neutralino.os.execCommand({
         command: com
       });
     },
     clear : async () =>{
       await Neutralino.os.execCommand({
-        command: 'python resources/scripts/clear.py'
+        command: 'python3 resources/scripts/clear.py'
       });
     },
     generateFasta: async () => {
       Metro.dialog.open("#fastaDialog");
-      let com = 'python resources/scripts/getSecuencia.py '.concat(pdbFile);
+      let com = 'python3 resources/scripts/getSecuencia.py '.concat(pdbFile);
       let response = await Neutralino.os.execCommand({
         command: com
       });
@@ -76,7 +76,7 @@ window.lynxCBRV = {
     graficarFasta : async () =>{
       Metro.dialog.open("#graphicDialog");
       await Neutralino.os.execCommand({
-        command: 'python resources/scripts/graficarFasta.py'
+        command: 'python3 resources/scripts/graficarFasta.py'
       });
       Metro.dialog.close("#graphicDialog");
     }
