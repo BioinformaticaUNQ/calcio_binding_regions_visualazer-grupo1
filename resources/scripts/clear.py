@@ -1,3 +1,6 @@
+import shutil
+import os
+
 dirPath = 'temp'
 
 try:
