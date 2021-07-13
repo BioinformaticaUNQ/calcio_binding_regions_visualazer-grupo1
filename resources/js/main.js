@@ -2,15 +2,6 @@ var pdbFile = null;
 const darkModIndicator = document.getElementById('darkIndicator');
 
 window.lynxCBRV = {
-    showInfo: () => {
-      document.getElementById('info').innerHTML = NL_APPID + " is running on port " +
-                  NL_PORT + " inside " + NL_OS + ".<br/><br/>" + "<span>v" + NL_VERSION + "</span>";
-    },
-    openDocs: () => {
-      Neutralino.app.open({
-        url: "https://neutralino.js.org/docs"
-      });
-    },
     checkPDB: async () => {
       div = document.getElementById("pdbNotify");
       if(pdbFile == null){
