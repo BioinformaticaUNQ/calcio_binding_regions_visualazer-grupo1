@@ -65,6 +65,18 @@
               <button
                 class="button"
                 name="button"
+                onclick="window.lynxCBRV.generateFasta();"
+                style="margin: 8px;" >
+                Generate FASTA
+              </button>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="col-12 transparent-style text-center">
+              <button
+                class="button"
+                name="button"
                 onclick="window.lynxCBRV.openInPyMol();"
                 style="margin: 8px;" >
                 Open In PyMol
@@ -137,6 +149,18 @@
         </div>
         <div class="dialog-actions text-venter">
           <button class="button js-dialog-close">Ok</button>
+        </div>
+      </div>
+
+      <div class="dialog text-center" id="fastaDialog" data-role="dialog">
+        <div class="dialog-title">Wait, we are generating the FASTA</div>
+        <div class="dialog-content text-center">
+          <center>
+            <div data-role="activity" data-type="bars" data-style="color"></div>
+          </center>
+        </div>
+        <div class="dialog-actions text-venter">
+          <button class="button js-dialog-close" style="display: none;">Ok</button>
         </div>
       </div>
 

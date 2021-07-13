@@ -63,6 +63,15 @@ window.lynxCBRV = {
       await Neutralino.os.execCommand({
         command: 'python resources/scripts/clear.py'
       });
+    },
+    generateFasta: async () => {
+      Metro.dialog.open("#fastaDialog");
+      let com = 'python resources/scripts/getSecuencia.py '.concat(pdbFile);
+      let response = await Neutralino.os.execCommand({
+        command: com
+      });
+      console.log(response.output);
+      Metro.dialog.close("#fastaDialog");
     }
 };
 
