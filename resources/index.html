@@ -117,7 +117,9 @@
                 data-off="off"
                 data-on="on" />
             </div>
+
             <div class="col-md-12" id="separator"></div>
+
             <div class="col-12 text-center">
               Principal Color
             </div>
@@ -158,7 +160,9 @@
               </button>
             </div>
 
-            <button class="button primary col-12 text-center" type="button" name="button" onclick="window.lynxCBRV.installReq();">
+            <div class="col-md-12" id="separator"></div>
+
+            <button class="button col-12 text-center" type="button" name="button" onclick="window.lynxCBRV.installReq();">
               Install dependencies
             </button>
           </div>
@@ -184,6 +188,16 @@
         <div class="dialog-title">Enjoy your graphic</div>
         <div class="dialog-content text-center">
           Please, if I finish using your graph, close it so that I can continue ...
+        </div>
+        <div class="dialog-actions text-venter">
+          <button class="button js-dialog-close" style="display: none;">Ok</button>
+        </div>
+      </div>
+
+      <div class="dialog text-center" id="depDialog" data-role="dialog">
+        <div class="dialog-title">Please wait a moment</div>
+        <div class="dialog-content text-center">
+          We are installing the dependencies for the program. Remember you have to have Python3 installed.
         </div>
         <div class="dialog-actions text-venter">
           <button class="button js-dialog-close" style="display: none;">Ok</button>
