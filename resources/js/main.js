@@ -79,6 +79,13 @@ window.lynxCBRV = {
         command: 'python3 resources/scripts/graficarFasta.py'
       });
       Metro.dialog.close("#graphicDialog");
+    },
+    installReq : async () =>{
+      Metro.dialog.open("#depDialog");
+      await Neutralino.os.execCommand({
+        command: 'pip3 install -r requisitos'
+      });
+      Metro.dialog.close("#depDialog");
     }
 };
 
