@@ -32,7 +32,7 @@ dm = calculator.get_distance(alignment)  # distance matrix
 constructor = DistanceTreeConstructor()
 tree = constructor.nj(dm)  # build with neighbour joining algorithm a tree from dm
 tree.rooted = True
-Phylo.write(tree, 'TreeToCutOff.nwk', 'newick')
+Phylo.write(tree, './temp/TreeToCutOff.nwk', 'newick')
 
 plt.rc('font',
        size=8)  # controls default text sizes #HERE IS THE SETTING FOR THAT ALLOWS ME TO HIDE THE BRANCH TIP LABELS

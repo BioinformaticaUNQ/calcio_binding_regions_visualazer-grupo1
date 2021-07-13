@@ -72,6 +72,13 @@ window.lynxCBRV = {
       });
       console.log(response.output);
       Metro.dialog.close("#fastaDialog");
+    },
+    graficarFasta : async () =>{
+      Metro.dialog.open("#graphicDialog");
+      await Neutralino.os.execCommand({
+        command: 'python resources/scripts/graficarFasta.py'
+      });
+      Metro.dialog.close("#graphicDialog");
     }
 };
 

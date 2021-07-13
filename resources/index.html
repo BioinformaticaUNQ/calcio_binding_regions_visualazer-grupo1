@@ -77,6 +77,18 @@
               <button
                 class="button"
                 name="button"
+                onclick="window.lynxCBRV.graficarFasta();"
+                style="margin: 8px;" >
+                Open Graphic
+              </button>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="col-12 transparent-style text-center">
+              <button
+                class="button"
+                name="button"
                 onclick="window.lynxCBRV.openInPyMol();"
                 style="margin: 8px;" >
                 Open In PyMol
@@ -158,6 +170,16 @@
           <center>
             <div data-role="activity" data-type="bars" data-style="color"></div>
           </center>
+        </div>
+        <div class="dialog-actions text-venter">
+          <button class="button js-dialog-close" style="display: none;">Ok</button>
+        </div>
+      </div>
+
+      <div class="dialog text-center" id="graphicDialog" data-role="dialog">
+        <div class="dialog-title">Enjoy your graphic</div>
+        <div class="dialog-content text-center">
+          Please, if I finish using your graph, close it so that I can continue ...
         </div>
         <div class="dialog-actions text-venter">
           <button class="button js-dialog-close" style="display: none;">Ok</button>
