@@ -1,6 +1,9 @@
 var pdbFile = null;
 const darkModIndicator = document.getElementById('darkIndicator');
 
+const btnGenerateFASTA = document.getElementById('btnGenerateFASTA');
+const btnOpenGraphic = document.getElementById('btnOpenGraphic');
+
 window.lynxCBRV = {
     checkPDB: async () => {
       div = document.getElementById("pdbNotify");
@@ -19,6 +22,7 @@ window.lynxCBRV = {
         });
         let resp = JSON.parse(response.output);
         if (resp.code == 200) {
+          btnGenerateFASTA.disabled = false;
           div.innerHTML=`
           <div class="info-box success col-12" style="position:relative;">
             <div class="info-box-content">
@@ -54,6 +58,8 @@ window.lynxCBRV = {
       await Neutralino.os.execCommand({
         command: 'python3 resources/scripts/clear.py'
       });
+      btnGenerateFASTA.disabled = true;
+      btnOpenGraphic.disabled = true;
     },
     generateFasta: async () => {
       Metro.dialog.open("#fastaDialog");
@@ -61,7 +67,7 @@ window.lynxCBRV = {
       let response = await Neutralino.os.execCommand({
         command: com
       });
-      console.log(response.output);
+      btnOpenGraphic.disabled = false;
       Metro.dialog.close("#fastaDialog");
     },
     graficarFasta : async () =>{
@@ -88,6 +94,8 @@ function setPathInfo(){
     div.value = pdbFile;
   }else{
     div.value = `You didn't select any file`;
+    btnGenerateFASTA.disabled = true;
+    btnOpenGraphic.disabled = true;
   }
 }
 
@@ -108,4 +116,6 @@ function changePrimaryColor(color){
 // Secuencia de inicio
 Neutralino.init();
 setPathInfo();
+btnGenerateFASTA.disabled = true;
+btnOpenGraphic.disabled = true;
 window.lynxCBRV.clear();
