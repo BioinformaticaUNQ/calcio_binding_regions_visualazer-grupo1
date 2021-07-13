@@ -54,7 +54,7 @@ window.lynxCBRV = {
       setPathInfo();
     },
     openInPyMol : async () =>{
-      let com = 'python resources/scripts/graficar.py '.concat(pdbFile);
+      let com = 'python resources/scripts/openPymol.py '.concat(pdbFile);
       let response = await Neutralino.os.execCommand({
         command: com
       });
