@@ -23,7 +23,6 @@ window.lynxCBRV = {
         `
       }else{
         let com = 'python resources/scripts/verify.py '.concat(pdbFile);
-        console.log(com);
         let response = await Neutralino.os.execCommand({
           command: com
         });
@@ -56,9 +55,13 @@ window.lynxCBRV = {
     },
     openInPyMol : async () =>{
       let com = 'python resources/scripts/graficar.py '.concat(pdbFile);
-      console.log(com);
       let response = await Neutralino.os.execCommand({
         command: com
+      });
+    },
+    clear : async () =>{
+      await Neutralino.os.execCommand({
+        command: 'python resources/scripts/clear.py'
       });
     }
 };
@@ -91,3 +94,4 @@ function changePrimaryColor(color){
 // Secuencia de inicio
 Neutralino.init();
 setPathInfo();
+window.lynxCBRV.clear();
