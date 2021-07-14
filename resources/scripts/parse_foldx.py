@@ -11,7 +11,8 @@ def get_energy(line):
     return line.split()[-1]
 
 
-def list_of_elements(file):
+# El archivo predict_output.txt debe estar en la carpeta ./temp
+def parse_file_foldx(file):
     read = file.read()
     lines = read.splitlines()
     elements = []
@@ -24,5 +25,3 @@ def list_of_elements(file):
         elements.append(element)
     return elements
 
-
-print(list_of_elements(open("./temp/predict_output.txt", "r")))
