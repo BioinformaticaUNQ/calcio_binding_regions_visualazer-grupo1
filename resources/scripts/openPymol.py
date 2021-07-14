@@ -19,6 +19,9 @@ from pymol import cmd
 
 path = sys.argv[1]
 data = get_fold_data(path)
+# Se puede dejar estos parametros como variables en una funcion para que queden a criterio del usuario.
+amstrom = "5"
+color = "red"
 
 try:
 
@@ -26,7 +29,7 @@ try:
         myPDB = strict_parser.get_structure('name', path)
         cmd.load(path)
         for i in data:
-            cmd.color("red", "byres all within 5 of resi " + str(i["number"]))
+            cmd.color(color, "byres all within " + amstrom + " of resi " + str(i["number"]))
 
     except Exception as e:
         print(e)
