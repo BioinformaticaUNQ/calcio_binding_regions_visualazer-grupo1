@@ -18,7 +18,7 @@
       "minHeight": 250,
       "fullScreen": false,
       "alwaysOnTop": false,
-      "icon": "/resources/icons/appIcon.png",
+      "icon": "/resources/img/logo.png",
       "enableInspector": false,
       "borderless": false,
       "maximize": false
