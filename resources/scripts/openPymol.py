@@ -1,10 +1,13 @@
 import json
+import os
 import sys
 
 import pymol
 from Bio.PDB import PDBParser
 
-from foldx import get_fold_data
+from parse_foldx import parse_file_foldx
+
+from pymol import cmd
 
 strict_parser = PDBParser(PERMISSIVE=0)
 
@@ -15,10 +18,13 @@ pymol.finish_launching()
 
 # Now we can import cmd
 
-from pymol import cmd
-
 path = sys.argv[1]
-data = get_fold_data(path)
+
+# Es necesario ejecutar previamente get_fold_data
+# data = get_fold_data(path)
+ROOT_DIR_TO = os.path.dirname(os.path.abspath(__file__))[:-17]
+data = parse_file_foldx(open(ROOT_DIR_TO + "predict_output.txt", "r"))
+
 # Se puede dejar estos parametros como variables en una funcion para que queden a criterio del usuario.
 amstrom = "5"
 color = "red"

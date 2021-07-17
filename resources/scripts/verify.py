@@ -1,10 +1,18 @@
+import os
 import sys
 import json
+from shutil import copyfile
 
 from Bio.PDB import *
 
+import clear
+
 
 def validate_pdb():
+    clear
+    ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+    ROOT_DIR_TO = os.path.dirname(os.path.abspath(__file__))[:-17]
+
     try:
         path = sys.argv[1]
         try:
@@ -18,6 +26,8 @@ def validate_pdb():
                                 "code": 200,
                                 "response": "OK: PDB file is correct"
                             }))
+
+                            copyfile(path, ROOT_DIR_TO + '/input.pdb')
                             return
 
             print(json.dumps({
@@ -34,4 +44,6 @@ def validate_pdb():
             "code": 204,
             "response": "ERROR: You must enter the path of the PDB"
         }))
+
+
 validate_pdb()

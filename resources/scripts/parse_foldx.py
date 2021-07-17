@@ -24,4 +24,3 @@ def parse_file_foldx(file):
         }
         elements.append(element)
     return elements
-

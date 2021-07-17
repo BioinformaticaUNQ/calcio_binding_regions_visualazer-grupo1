@@ -23,6 +23,7 @@ window.lynxCBRV = {
         let resp = JSON.parse(response.output);
         if (resp.code == 200) {
           btnGenerateFASTA.disabled = false;
+          btnExecFoldX.disabled = false;
           div.innerHTML=`
           <div class="info-box success col-12" style="position:relative;">
             <div class="info-box-content">
@@ -47,6 +48,13 @@ window.lynxCBRV = {
       });
       pdbFile = response.selectedEntry;
       setPathInfo();
+    },
+    execFoldX : async () =>{
+      let com = 'python3 resources/scripts/foldx.py '.concat(pdbFile);
+      let response = await Neutralino.os.execCommand({
+        command: com
+      });
+        btnOpenInPyMol.disabled = false;
     },
     openInPyMol : async () =>{
       let com = 'python3 resources/scripts/openPymol.py '.concat(pdbFile);
@@ -117,5 +125,7 @@ function changePrimaryColor(color){
 Neutralino.init();
 setPathInfo();
 btnGenerateFASTA.disabled = true;
+btnExecFoldX.disabled = true;
+btnOpenInPyMol.disabled = true;
 btnOpenGraphic.disabled = true;
 window.lynxCBRV.clear();
