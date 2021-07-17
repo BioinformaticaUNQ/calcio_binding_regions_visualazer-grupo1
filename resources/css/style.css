@@ -59,7 +59,16 @@ body{
 }
 
 /* Titles */
+table, th, td{
+    border: 2px solid white;
+    padding:3px
 
+}
+.diva{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 h1{
   font-weight: bold;
   color: var(--primary-color);

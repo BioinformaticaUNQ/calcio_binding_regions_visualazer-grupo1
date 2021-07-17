@@ -17,9 +17,8 @@ strict_parser = PDBParser(PERMISSIVE=0)
 pymol.finish_launching()
 
 # Now we can import cmd
-
-path = sys.argv[1]
-
+argv = sys.argv
+path = argv[1]
 # Es necesario ejecutar previamente get_fold_data
 # data = get_fold_data(path)
 ROOT_DIR_TO = os.path.dirname(os.path.abspath(__file__))[:-17]

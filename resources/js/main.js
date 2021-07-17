@@ -57,11 +57,28 @@ window.lynxCBRV = {
         btnOpenInPyMol.disabled = false;
     },
     openInPyMol : async () =>{
-      let com = 'python3 resources/scripts/openPymol.py '.concat(pdbFile);
+      let com = 'python3 resources/scripts/openPymol.py '.concat(pdbFile)
       let response = await Neutralino.os.execCommand({
         command: com
       });
     },
+
+      showFoldX : async () =>{
+      let com = 'python3 resources/scripts/parse_foldx.py '
+      let response = await Neutralino.os.execCommand({
+        command: com
+      });
+      var list = response.value
+
+          var table = document.getElementById("foldTable");
+
+          var row = table.insertRow();
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          cell1.innerHTML = list;
+          cell2.innerHTML = "NEW CELL2";
+    },
+
     clear : async () =>{
       await Neutralino.os.execCommand({
         command: 'python3 resources/scripts/clear.py'
