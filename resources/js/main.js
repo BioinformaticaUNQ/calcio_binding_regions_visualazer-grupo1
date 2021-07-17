@@ -55,6 +55,7 @@ window.lynxCBRV = {
         command: com
       });
         btnOpenInPyMol.disabled = false;
+        btnShowFoldX.disabled = false;
     },
     openInPyMol : async () =>{
       let com = 'python3 resources/scripts/openPymol.py '.concat(pdbFile)
@@ -145,4 +146,5 @@ btnGenerateFASTA.disabled = true;
 btnExecFoldX.disabled = true;
 btnOpenInPyMol.disabled = true;
 btnOpenGraphic.disabled = true;
+btnShowFoldX.disabled = true;
 window.lynxCBRV.clear();
