@@ -50,11 +50,13 @@ window.lynxCBRV = {
       setPathInfo();
     },
     execFoldX : async () =>{
+      Metro.dialog.open("#fildxDialog");
       let com = 'python3 resources/scripts/foldx.py '.concat(pdbFile);
       let response = await Neutralino.os.execCommand({
         command: com
       });
-        btnOpenInPyMol.disabled = false;
+      btnOpenInPyMol.disabled = false;
+      Metro.dialog.close("#fildxDialog");
     },
     openInPyMol : async () =>{
       let com = 'python3 resources/scripts/openPymol.py '.concat(pdbFile);
