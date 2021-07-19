@@ -1,20 +1,17 @@
-import os, io, random
+from bokeh.layouts import gridplot
+from bokeh.models.glyphs import Text, Rect
+from bokeh.models import ColumnDataSource, Range1d
+from bokeh.plotting import figure
+import os
+import io
+import random
 import string
 import numpy as np
+import panel as pn
 
-from Bio.Seq import Seq
-from Bio.Align import MultipleSeqAlignment
 from Bio import AlignIO, SeqIO
 
-import panel as pn
-import panel.widgets as pnw
-
 pn.extension()
-
-from bokeh.plotting import figure
-from bokeh.models import ColumnDataSource, Plot, Grid, Range1d
-from bokeh.models.glyphs import Text, Rect
-from bokeh.layouts import gridplot
 
 
 def view_alignment(aln, fontsize="9pt", plot_width=800):
@@ -38,9 +35,9 @@ def view_alignment(aln, fontsize="9pt", plot_width=800):
     gy = yy.flatten()
     # use recty for rect coords with an offset
     recty = gy + .5
-    h = 1 / S
     # now we can create the ColumnDataSource with all the arrays
-    source = ColumnDataSource(dict(x=gx, y=gy, recty=recty, text=text, colors=colors))
+    source = ColumnDataSource(
+        dict(x=gx, y=gy, recty=recty, text=text, colors=colors))
     plot_height = len(seqs) * 15 + 50
     x_range = Range1d(0, N + 1, bounds='auto')
     if N > 100:
@@ -82,7 +79,31 @@ def view_alignment(aln, fontsize="9pt", plot_width=800):
 
 
 def make_seq(length=40):
-    return ''.join([random.choice(['-','A','R','N','D','C','Q','E','H','I','L','K','M','F','P','S','T','W','Y','V','G','B','X','Z']) for i in range(length)])
+    return ''.join([random.choice([
+        '-',
+        'A',
+        'R',
+        'N',
+        'D',
+        'C',
+        'Q',
+        'E',
+        'H',
+        'I',
+        'L',
+        'K',
+        'M',
+        'F',
+        'P',
+        'S',
+        'T',
+        'W',
+        'Y',
+        'V',
+        'G',
+        'B',
+        'X',
+        'Z']) for i in range(length)])
 
 
 def mutate_seq(seq):
@@ -90,20 +111,70 @@ def mutate_seq(seq):
     seq = list(seq)
     pos = np.random.randint(1, len(seq), 6)
     for i in pos:
-        seq[i] = random.choice(['-','A','R','N','D','C','Q','E','H','I','L','K','M','F','P','S','T','W','Y','V','G','B','X','Z'])
+        seq[i] = random.choice(['-',
+                                'A',
+                                'R',
+                                'N',
+                                'D',
+                                'C',
+                                'Q',
+                                'E',
+                                'H',
+                                'I',
+                                'L',
+                                'K',
+                                'M',
+                                'F',
+                                'P',
+                                'S',
+                                'T',
+                                'W',
+                                'Y',
+                                'V',
+                                'G',
+                                'B',
+                                'X',
+                                'Z'])
     return ''.join(seq)
+
+
 def random_color():
-    rgbl=[255,0,0]
+    rgbl = [255, 0, 0]
     random.shuffle(rgbl)
     return tuple(rgbl)
+
 
 def get_colors(seqs):
     """make colors for bases in sequence"""
     text = [i for s in list(seqs) for i in s]
-    clrs =  {'-':'white','A':'lime','R':'density','N':'deepsalmon','D':'warmpink','C':'paleyellow','Q':'tv_red','E':'ruby','H':'slate','I':'forest','L':'smudge','K':'deepblue','M':'sand','F':'gray40','P':'gray20','S':'tv_orange','T':'brown','W':'palegreen','Y':'wheat','V':'pink','G':'yellow','B':'yellow','X':'yellow','Z':'yellow'}
+    clrs = {
+        '-': 'white',
+        'A': 'lime',
+        'R': 'density',
+        'N': 'deepsalmon',
+        'D': 'warmpink',
+        'C': 'paleyellow',
+        'Q': 'tv_red',
+        'E': 'ruby',
+        'H': 'slate',
+        'I': 'forest',
+        'L': 'smudge',
+        'K': 'deepblue',
+        'M': 'sand',
+        'F': 'gray40',
+        'P': 'gray20',
+        'S': 'tv_orange',
+        'T': 'brown',
+        'W': 'palegreen',
+        'Y': 'wheat',
+        'V': 'pink',
+        'G': 'yellow',
+        'B': 'yellow',
+        'X': 'yellow',
+        'Z': 'yellow'
+    }
     colors = [clrs[i] for i in text]
     return colors
-
 
 
 def muscle_alignment(seqs):
@@ -121,9 +192,22 @@ def muscle_alignment(seqs):
 title = pn.pane.Markdown('## Sequence aligner')
 load_btn = pn.widgets.FileInput()
 aln_btn = pn.widgets.Button(name='align', width=100, button_type='primary')
-randomseq_btn = pn.widgets.Button(name='random seqs', width=100, button_type='primary')
-numseqs_input = pn.widgets.IntSlider(name='sequences', start=2, end=50, value=5, width=200)
-length_input = pn.widgets.IntSlider(name='length', start=10, end=500, value=50, width=200)
+randomseq_btn = pn.widgets.Button(
+    name='random seqs',
+    width=100,
+    button_type='primary')
+numseqs_input = pn.widgets.IntSlider(
+    name='sequences',
+    start=2,
+    end=50,
+    value=5,
+    width=200)
+length_input = pn.widgets.IntSlider(
+    name='length',
+    start=10,
+    end=500,
+    value=50,
+    width=200)
 
 seq_pane = pn.pane.Str(name='sequences', height=300)
 result = pn.pane.Str("empty", width=600)
@@ -138,7 +222,8 @@ def create_sequences(event):
     num = numseqs_input.value
     for i in range(num):
         seq = mutate_seq(startseq)
-        name = ''.join([random.choice(string.ascii_lowercase) for i in range(10)])
+        name = ''.join([random.choice(string.ascii_lowercase)
+                       for i in range(10)])
         s += '>%s\n' % name + seq + '\n'
     seq_pane.object = s
     return
@@ -155,6 +240,3 @@ def align(event):
     # aligned = [rec.seq for rec in (aln)]
     bokeh_pane.object = view_alignment(aln, fontsize="7pt", plot_width=600)
     return
-
-
-
