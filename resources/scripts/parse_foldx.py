@@ -1,4 +1,3 @@
-
 def get_atom(line):
     return line.split()[0].split("_")[0]
 

@@ -1,10 +1,7 @@
-import os
 import sys
 import json
 
-from Bio.PDB import *
-
-import clear
+from Bio.PDB import PDBParser
 
 
 def validate_pdb():

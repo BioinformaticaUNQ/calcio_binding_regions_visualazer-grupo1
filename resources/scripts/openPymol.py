@@ -25,7 +25,8 @@ path = sys.argv[1]
 ROOT_DIR_TO = os.path.dirname(os.path.abspath(__file__))[:-17]
 data = parse_file_foldx(open(ROOT_DIR_TO + "predict_output.txt", "r"))
 
-# Se puede dejar estos parametros como variables en una funcion para que queden a criterio del usuario.
+# Se puede dejar estos parametros como variables en una funcion para que queden
+# a criterio del usuario.
 amstrom = "5"
 color = "red"
 
@@ -35,7 +36,11 @@ try:
         myPDB = strict_parser.get_structure('name', path)
         cmd.load(path)
         for i in data:
-            cmd.color(color, "byres all within " + amstrom + " of resi " + str(i["number"]))
+            cmd.color(color,
+                      "byres all within " +
+                      amstrom +
+                      " of resi " +
+                      str(i["number"]))
 
     except Exception as e:
         print(e)

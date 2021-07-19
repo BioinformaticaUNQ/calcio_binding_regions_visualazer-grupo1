@@ -1,17 +1,18 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIWWW, NCBIXML
-import sys
 from Bio.Seq import Seq
+import sys
+
 
 def get_seqrecs(alignments, threshold):
     for aln in alignments:
         for hsp in aln.hsps:
-            if hsp.expect < threshold and (hsp.identities / hsp.align_length) > 0.4:
+            if hsp.expect < threshold and (hsp.identities/hsp.align_length) > 0.4:
                 yield SeqIO.SeqRecord(Seq(hsp.sbjct), id=aln.accession)
                 break
 
 
-fasta_string =""
+fasta_string = ""
 with open(sys.argv[1], 'r') as pdb_file:
     for record in SeqIO.parse(pdb_file, 'pdb-atom'):
         fasta_string += '>' + record.id + "\n"
@@ -27,7 +28,7 @@ for alignment in blast_record.alignments:
         print('length:', alignment.length)
         print('score:', hsp.score)
         print('gaps:', hsp.gaps)
-        print('Percent',(hsp.identities / hsp.align_length))
+        print('Percent', (hsp.identities / hsp.align_length))
         print(hsp.query[0:90] + '...')
         print(hsp.match[0:90] + '...')
         print(hsp.sbjct[0:90] + '...')

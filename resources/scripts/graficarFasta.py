@@ -1,9 +1,6 @@
 from Bio.Phylo.TreeConstruction import DistanceCalculator, DistanceTreeConstructor
 from Bio import SeqIO
-from Bio.Phylo import draw
 from Bio import Phylo, AlignIO, Seq
-import subprocess
-import matplotlib
 import matplotlib.pyplot as plt
 
 input_file = './temp/egfr-family.fasta'
