@@ -255,3 +255,9 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+input.pdb
+predict_output.txt
+metal_orphan.txt
+MB_input.fxout
+CA_MB_input.pdb
