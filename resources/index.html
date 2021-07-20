@@ -98,18 +98,43 @@
               </button>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="col-12 transparent-style text-center">
-              <button
-                class="button"
-                name="button"
-                id="btnOpenInPyMol"
-                onclick="window.lynxCBRV.openInPyMol();"
-                style="margin: 8px;" >
-                Open In PyMol
-              </button>
+
+          <div class="col-12">
+            <div class="container transparent-style text-center">
+              <div class="row">
+                <div class="col-md-6">
+                  Amstroms
+                  <input
+                    type="number"
+                    class="text-center"
+                    name="amstrom"
+                    value="4"
+                    id="inputAmstom"
+                    style="margin: 8px; width: 90%" />
+                </div>
+                <div class="col-md-6">
+                  Color
+                  <select data-role="select" id="selectColor">
+                    <option value="blue">Blue</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <button
+                    class="button"
+                    name="button"
+                    id="btnOpenInPyMol"
+                    onclick="window.lynxCBRV.openInPyMol();"
+                    style="margin: 8px; width: 98%" >
+                    Open In PyMol
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
 

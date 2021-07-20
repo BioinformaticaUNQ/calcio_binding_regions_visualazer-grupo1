@@ -43,9 +43,24 @@ body{
 
 /* Inputs */
 
-.input{
+.input, input, .select, .select .drop-container{
   border-radius: var(--radius);
   background: var(--bg-color);
+  color: var(--font-color);
+  border: 1px var(--primary-color) solid;
+}
+
+.select .option-list li, .select .option-list{
+  background: rgba(0,0,0,0);
+  border-radius: var(--radius);
+  color: var(--font-color);
+}
+
+.select .option-list li.active{
+  background-color: var(--primary-control);
+}
+
+input::-webkit-inner-spin-button{
   color: var(--font-color);
   border: 1px var(--primary-color) solid;
 }

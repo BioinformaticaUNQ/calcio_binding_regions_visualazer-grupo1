@@ -21,22 +21,25 @@ with open(input_file, 'w') as f:
     SeqIO.write(records, f, 'fasta')
 alignment = AlignIO.read(input_file, "fasta")
 
-alignment = AlignIO.read('./temp/egfr-family.fasta', 'fasta')  # reading the alignment file
+alignment = AlignIO.read('./temp/egfr-family.fasta',
+                         'fasta')  # reading the alignment file
 
 calculator = DistanceCalculator('identity')
 dm = calculator.get_distance(alignment)  # distance matrix
 
 constructor = DistanceTreeConstructor()
-tree = constructor.nj(dm)  # build with neighbour joining algorithm a tree from dm
+# build with neighbour joining algorithm a tree from dm
+tree = constructor.nj(dm)
 tree.rooted = True
 Phylo.write(tree, './temp/TreeToCutOff.nwk', 'newick')
 
 plt.rc('font',
-       size=8)  # controls default text sizes #HERE IS THE SETTING FOR THAT ALLOWS ME TO HIDE THE BRANCH TIP LABELS
+       size=8)  # controls default text sizes #HERE IS THE SETTING FOR THAT
+# ALLOWS ME TO HIDE THE BRANCH TIP LABELS
 plt.rc('axes', titlesize=24)  # fontsize of the axes title
 plt.rc('xtick', labelsize=20)  # fontsize of the tick labels
 plt.rc('ytick', labelsize=20)  # fontsize of the tick labels
 plt.rc('figure', titlesize=28)  # fontsize of the figure title
 
 Phylo.draw(tree)
-#plt.savefig("TreeToCutOff.svg", format='svg', dpi=1200)
+# plt.savefig("TreeToCutOff.svg", format='svg', dpi=1200)

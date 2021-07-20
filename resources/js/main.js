@@ -52,6 +52,11 @@ window.lynxCBRV = {
     execFoldX : async () =>{
       Metro.dialog.open("#fildxDialog");
       let com = 'python3 resources/scripts/foldx.py '.concat(pdbFile);
+      com = com.concat(" ")
+      com = com.concat(getColor())
+      com = com.concat(" ")
+      com = com.concat(getAmstroms())
+      console.log(com);
       let response = await Neutralino.os.execCommand({
         command: com
       });
@@ -107,6 +112,16 @@ function setPathInfo(){
     btnGenerateFASTA.disabled = true;
     btnOpenGraphic.disabled = true;
   }
+}
+
+function getColor(){
+  div = document.getElementById("selectColor");
+  return div.value
+}
+
+function getAmstroms(){
+  div = document.getElementById("inputAmstom");
+  return div.value
 }
 
 function toggleDarkMode(){
