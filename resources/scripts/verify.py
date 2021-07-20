@@ -1,5 +1,7 @@
 import sys
 import json
+import os
+from shutil import copyfile
 
 from Bio.PDB import PDBParser
 
@@ -7,9 +9,11 @@ from Bio.PDB import PDBParser
 def validate_pdb():
     try:
         path = sys.argv[1]
+        ROOT_DIR_TO = os.path.dirname(os.path.abspath(__file__))[:-17]
         try:
             parser = PDBParser(PERMISSIVE=0)
             structure = parser.get_structure("name", path)
+            copyfile(path, ROOT_DIR_TO + '/input.pdb')
             for model in structure:
                 for chain in model:
                     for residue in chain:
@@ -22,7 +26,7 @@ def validate_pdb():
 
             print(json.dumps({
                 "code": 204,
-                "response": "ERROR: There are no calcium ion bonds in the protein "
+                "response": "ERROR: There are no calcium ion bonds in the protein"
             }))
         except:
             print(json.dumps({
