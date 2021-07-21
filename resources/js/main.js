@@ -69,7 +69,7 @@ window.lynxCBRV = {
           <tr>
             <th class="text-center">Atom</th>
             <th class="text-center">Number</th>
-            <th class="text-center">Energy</th>
+            <th class="text-center">Binding Energy</th>
           </tr>
         </thead>
         <tbody>
