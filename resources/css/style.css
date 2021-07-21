@@ -119,3 +119,13 @@ h1{
   border-color: #ffffff !important;
   background: #ffffff !important;
 }
+
+/* Table */
+
+.table thead th {
+  color: var(--primary-color);
+}
+
+.table thead {
+border-bottom: 4px solid var(--primary-color);
+}

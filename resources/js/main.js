@@ -67,9 +67,9 @@ window.lynxCBRV = {
       <table class="table text-center">
         <thead>
           <tr>
-            <th>Atom</th>
-            <th>Number</th>
-            <th>Energy</th>
+            <th class="text-center">Atom</th>
+            <th class="text-center">Number</th>
+            <th class="text-center">Energy</th>
           </tr>
         </thead>
         <tbody>
