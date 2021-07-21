@@ -52,11 +52,49 @@ window.lynxCBRV = {
     execFoldX : async () =>{
       Metro.dialog.open("#foldxDialog");
       let com = 'python3 resources/scripts/foldx.py';
-      console.log(com);
-      let response = await Neutralino.os.execCommand({
+      await Neutralino.os.execCommand({
         command: com
       });
-      console.log(response.output);
+      let com2 = 'python3 resources/scripts/parse_foldx.py'
+      let response = await Neutralino.os.execCommand({
+        command: com2
+      });
+      var list = JSON.parse(response.output.replace(/'/g, '"'));
+      console.log(list);
+      div = document.getElementById("tableFoldx");
+      var html = `
+      <div class="container transparent-style">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th>Atom</th>
+            <th>Number</th>
+            <th>Energy</th>
+          </tr>
+        </thead>
+        <tbody>
+      `
+      for (let elem of list){
+        console.log(elem);
+        console.log(elem.atom);
+        html = html.concat(`
+          <tr>
+            <td>
+          `).concat(elem.atom).concat(`
+            </td><td>
+          `).concat(elem.number).concat(`
+            </td><td>
+          `).concat(elem.energy).concat(`
+            </td>
+          </tr>
+          `)
+      }
+      html = html.concat(`
+        </tbody>
+      </table>
+      </div>
+      `);
+      div.innerHTML = html;
       btnOpenInPyMol.disabled = false;
       Metro.dialog.close("#foldxDialog");
     },

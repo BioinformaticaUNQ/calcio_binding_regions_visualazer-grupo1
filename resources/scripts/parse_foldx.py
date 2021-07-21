@@ -1,3 +1,6 @@
+import os
+
+
 def get_atom(line):
     return line.split()[0].split("_")[0]
 
@@ -23,3 +26,7 @@ def parse_file_foldx(file):
         }
         elements.append(element)
     return elements
+
+
+ROOT_DIR_TO = os.path.dirname(os.path.abspath(__file__))[:-17]
+print(parse_file_foldx(open(ROOT_DIR_TO + "predict_output.txt", "r")))
