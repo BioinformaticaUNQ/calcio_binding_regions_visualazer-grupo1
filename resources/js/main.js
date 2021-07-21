@@ -61,11 +61,8 @@ window.lynxCBRV = {
       Metro.dialog.close("#fildxDialog");
     },
     openInPyMol : async () =>{
-      let com = 'python3 resources/scripts/openPymol.py '.concat(pdbFile);
-      com = com.concat(" ")
-      com = com.concat(getColor())
-      com = com.concat(" ")
-      com = com.concat(getAmstroms())
+      let com = 'python3 resources/scripts/openPymol.py '.concat(getColor()).concat(" ").concat(getAmstroms()).concat(" ").concat(pdbFile);
+      console.log(com);
       let response = await Neutralino.os.execCommand({
         command: com
       });

@@ -18,7 +18,7 @@ pymol.finish_launching()
 
 # Now we can import cmd
 
-path = sys.argv[1]
+path = sys.argv[3]
 
 # Es necesario ejecutar previamente get_fold_data
 # data = get_fold_data(path)
@@ -27,8 +27,8 @@ data = parse_file_foldx(open(ROOT_DIR_TO + "predict_output.txt", "r"))
 
 # Se puede dejar estos parametros como variables en una funcion para que queden
 # a criterio del usuario.
-color = sys.argv[2]
-amstrom = sys.argv[3]
+color = sys.argv[1]
+amstrom = sys.argv[2]
 
 try:
 
