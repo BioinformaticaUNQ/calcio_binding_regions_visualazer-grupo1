@@ -15,7 +15,7 @@ La idea del software es permitir la visualización de regiones conservadas de un
 - [pymol](https://pymol.org/2/)
 - [matplotlib](https://matplotlib.org/)
 - [panel]()
-- [bokeh]
+- [bokeh]()
 - [jupyter](https://jupyter.org/)
 
 
@@ -37,6 +37,7 @@ pip install -r requisitos
   - Regiones de calcio
   - Energia union al metal
 
+![Calcium bilding regions visualizer](https://github.com/BioinformaticaUNQ/calcio_binding_regions_visualazer-grupo1/blob/master/extras/inicio.png)
 
 #### Funcionamiento del sistema:
 
@@ -53,12 +54,16 @@ Este proceso puede demorar varios minutos.
 Luego de correr la instancia incial se puede seguir el chequeo y analisis del pdb mediante los siguientes botones:
  
 - “Open Graphic” muestra en pantalla el árbol filogenético de las homólogas obtenidas en la consulta Blast. Además generar un archivo newick en el directorio ./temp para poder ser utilizado en un software externo.
- 
+ ![phylo](https://github.com/BioinformaticaUNQ/calcio_binding_regions_visualazer-grupo1/blob/master/extras/filogenetico.png)
+
 - “Show alignment” muestra en pantalla la alineación de las homologas obtenidas.
+![alignment](https://github.com/BioinformaticaUNQ/calcio_binding_regions_visualazer-grupo1/blob/master/extras/alignment.png)
  
 - “Generate FoldX Files” despliega una tabla donde se muestran las posiciones en la estructura primaria de la proteína donde se une el calcio con sus respectivas energías.
+![foldx](https://github.com/BioinformaticaUNQ/calcio_binding_regions_visualazer-grupo1/blob/master/extras/fold_generated.png)
  
 - “Open in PyMol” abre el software con la proteína cargada y coloreando las regiones de unión calcio según la configuración de Angstrom y el color seleccionado.
+![pymol](https://github.com/BioinformaticaUNQ/calcio_binding_regions_visualazer-grupo1/blob/master/extras/pymol.png)
 
 
 
