@@ -114,10 +114,17 @@ window.lynxCBRV = {
       btnShowAlignment.disabled = true;
     },
     showAlignment: async () => {
-      let com = 'python3 resources/scripts/alignments.py ';
+      div = document.getElementById("alignDiv");
       let response = await Neutralino.os.execCommand({
-        command: com
+        command: 'python3 resources/scripts/alignments.py'
       });
+      div.innerHTML = `
+        <div class="container transparent-style">
+          <div class="embed-container">
+            <iframe src="../temp/align.html" allowfullscreen></iframe>
+          </div>
+        </div>
+      `
     },
     generateFasta: async () => {
       Metro.dialog.open("#fastaDialog");

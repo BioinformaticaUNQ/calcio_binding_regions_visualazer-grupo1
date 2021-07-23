@@ -247,4 +247,4 @@ input_file = './temp/egfr-family.fasta'
 aln = AlignIO.read(input_file, 'fasta')
 p = view_alignment(aln)
 output_file("foo.html")
-pn.pane.Bokeh(p).show()
+pn.pane.Bokeh(p).save('temp/align.html')
