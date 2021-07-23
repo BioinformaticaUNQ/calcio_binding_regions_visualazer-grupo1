@@ -62,7 +62,7 @@
 
           <div class="col-12" id="tableFoldx"></div>
 
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="col-12 transparent-style text-center">
               <button
                 class="button"
@@ -75,7 +75,7 @@
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="col-12 transparent-style text-center">
               <button
                 class="button"
@@ -87,8 +87,19 @@
               </button>
             </div>
           </div>
-
-          <div class="col-md-4">
+          <div class="col-md-3">
+            <div class="col-12 transparent-style text-center">
+              <button
+                class="button"
+                name="button"
+                id="btnShowAlignment"
+                onclick="window.lynxCBRV.showAlignment();"
+                style="margin: 8px;" >
+                Show alignment
+              </button>
+            </div>
+          </div>
+          <div class="col-md-3">
             <div class="col-12 transparent-style text-center">
               <button
                 class="button"
@@ -231,6 +242,19 @@
           <button class="button js-dialog-close" style="display: none;">Ok</button>
         </div>
       </div>
+
+      <div class="dialog text-center" id="AlignmentDialog" data-role="dialog">
+        <div class="dialog-title">Wait, we are aligning the FASTA</div>
+        <div class="dialog-content text-center">
+          <center>
+            <div data-role="activity" data-type="bars" data-style="color"></div>
+          </center>
+        </div>
+        <div class="dialog-actions text-venter">
+          <button class="button js-dialog-close" style="display: none;">Ok</button>
+        </div>
+      </div>
+
 
       <div class="dialog text-center" id="foldxDialog" data-role="dialog">
         <div class="dialog-title">Wait, we are running FoldX</div>

@@ -1,3 +1,4 @@
+from bokeh.io import output_file
 from bokeh.layouts import gridplot
 from bokeh.models.glyphs import Text, Rect
 from bokeh.models import ColumnDataSource, Range1d
@@ -223,7 +224,7 @@ def create_sequences(event):
     for i in range(num):
         seq = mutate_seq(startseq)
         name = ''.join([random.choice(string.ascii_lowercase)
-                       for i in range(10)])
+                        for i in range(10)])
         s += '>%s\n' % name + seq + '\n'
     seq_pane.object = s
     return
@@ -240,3 +241,10 @@ def align(event):
     # aligned = [rec.seq for rec in (aln)]
     bokeh_pane.object = view_alignment(aln, fontsize="7pt", plot_width=600)
     return
+
+
+input_file = './temp/egfr-family.fasta'
+aln = AlignIO.read(input_file, 'fasta')
+p = view_alignment(aln)
+output_file("foo.html")
+pn.pane.Bokeh(p).show()

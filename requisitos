@@ -1,3 +1,6 @@
 biopython
 pymol
 matplotlib
+panel
+bokeh
+jupyter
