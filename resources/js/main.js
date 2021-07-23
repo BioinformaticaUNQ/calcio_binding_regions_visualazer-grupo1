@@ -168,7 +168,7 @@ window.lynxCBRV = {
     installReq : async () =>{
       Metro.dialog.open("#depDialog");
       let data = await Neutralino.os.execCommand({
-        command: 'pip3 install -r requisitos'
+        command: 'pip3 install -r requirements'
       });
       message = message + data.output + '\n'
       document.getElementById('termOuput').innerText = message;
