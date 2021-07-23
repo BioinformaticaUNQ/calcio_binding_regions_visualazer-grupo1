@@ -135,3 +135,18 @@ h1, h2{
 .table thead {
 border-bottom: 4px solid var(--primary-color);
 }
+
+/* Charm */
+
+#termOuput{
+  max-height: 200px;
+}
+
+.charms.bottom-side{
+  background: var(--bg-color) !important;
+  border-radius: var(--radius) var(--radius) 0 0 !important;
+}
+
+.action-button{
+  background: var(--primary-color);
+}

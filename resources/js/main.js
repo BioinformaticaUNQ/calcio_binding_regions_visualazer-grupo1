@@ -65,7 +65,6 @@ window.lynxCBRV = {
         command: com2
       });
       var list = JSON.parse(response.output.replace(/'/g, '"'));
-      console.log(list);
       div = document.getElementById("tableFoldx");
       var html = `
       <div class="container transparent-style">
@@ -106,9 +105,11 @@ window.lynxCBRV = {
     openInPyMol : async () =>{
       let com = 'python3 resources/scripts/openPymol.py '.concat(getColor()).concat(" ").concat(getAmstroms()).concat(" ").concat(pdbFile);
       console.log(com);
-      let response = await Neutralino.os.execCommand({
+      let data = await Neutralino.os.execCommand({
         command: com
       });
+      message = message + data.output + '\n'
+      document.getElementById('termOuput').innerText = message;
     },
     clear : async () =>{
       btnGenerateFASTA.disabled = true;
