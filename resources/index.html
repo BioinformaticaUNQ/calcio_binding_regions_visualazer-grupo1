@@ -232,7 +232,24 @@
 
             <div class="col-md-12" id="separator3"></div>
 
-            <button class="button col-12 text-center" type="button" name="button" onclick="window.lynxCBRV.installReq();">
+            <div class="col-12 text-center">
+              Program dependencies
+              <span
+                class="mif-info"
+                data-role="hint"
+                data-hint-text="biopython
+                pymol
+                matplotlib
+                panel
+                bokeh
+                jupyter">
+              </span>
+            </div>
+
+            <button
+              class="button col-12 text-center"
+              type="button" name="button"
+              onclick="window.lynxCBRV.installReq();">
               Install dependencies
             </button>
           </div>
