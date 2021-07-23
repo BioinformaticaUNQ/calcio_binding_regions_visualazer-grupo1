@@ -5,6 +5,8 @@ const btnGenerateFASTA = document.getElementById('btnGenerateFASTA');
 const btnOpenGraphic = document.getElementById('btnOpenGraphic');
 const btnExecFoldX = document.getElementById('btnExecFoldX');
 
+var message = '';
+
 window.lynxCBRV = {
     checkPDB: async () => {
       div = document.getElementById("pdbNotify");
@@ -53,9 +55,11 @@ window.lynxCBRV = {
     execFoldX : async () =>{
       Metro.dialog.open("#foldxDialog");
       let com = 'python3 resources/scripts/foldx.py';
-      await Neutralino.os.execCommand({
+      let data = await Neutralino.os.execCommand({
         command: com
       });
+      message = message + data.output + '\n'
+      document.getElementById('termOuput').innerText = message;
       let com2 = 'python3 resources/scripts/parse_foldx.py'
       let response = await Neutralino.os.execCommand({
         command: com2
@@ -112,9 +116,11 @@ window.lynxCBRV = {
       btnOpenInPyMol.disabled = true;
       btnOpenGraphic.disabled = true;
       btnShowAlignment.disabled = true;
-      await Neutralino.os.execCommand({
+      let data = await Neutralino.os.execCommand({
         command: 'python3 resources/scripts/clear.py'
       });
+      message = message + data.output + '\n'
+      document.getElementById('termOuput').innerText = message;
       div = document.getElementById("tableFoldx");
       div.innerHTML = "";
       div = document.getElementById("alignDiv");
@@ -129,6 +135,8 @@ window.lynxCBRV = {
       let response = await Neutralino.os.execCommand({
         command: 'python3 resources/scripts/alignments.py'
       });
+      message = message + response.output + '\n'
+      document.getElementById('termOuput').innerText = message;
       div.innerHTML = `
         <div class="container transparent-style">
           <div class="embed-container">
@@ -143,6 +151,8 @@ window.lynxCBRV = {
       let response = await Neutralino.os.execCommand({
         command: com
       });
+      message = message + response.output + '\n'
+      document.getElementById('termOuput').innerText = message;
       btnShowAlignment.disabled = false;
       btnOpenGraphic.disabled = false;
       Metro.dialog.close("#fastaDialog");
@@ -156,9 +166,11 @@ window.lynxCBRV = {
     },
     installReq : async () =>{
       Metro.dialog.open("#depDialog");
-      await Neutralino.os.execCommand({
+      let data = await Neutralino.os.execCommand({
         command: 'pip3 install -r requisitos'
       });
+      message = message + data.output + '\n'
+      document.getElementById('termOuput').innerText = message;
       Metro.dialog.close("#depDialog");
     }
 };
@@ -179,6 +191,11 @@ function setPathInfo(){
 function getColor(){
   div = document.getElementById("selectColor");
   return div.value
+}
+
+function toggleConsole(){
+  Metro.charms.toggle("#consoleCharm");
+  window.lynxCBRV.test();
 }
 
 function getAmstroms(){

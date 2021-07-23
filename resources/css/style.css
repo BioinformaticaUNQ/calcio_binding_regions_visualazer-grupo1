@@ -41,6 +41,12 @@ body{
   color: var(--font-color);
 }
 
+#consoleButtom{
+  position: fixed;
+  top: 15px;
+  left: 15px;
+}
+
 /* Inputs */
 
 .input, input, .select, .select .drop-container{
