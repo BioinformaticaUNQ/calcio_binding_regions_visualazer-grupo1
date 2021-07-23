@@ -43,12 +43,11 @@ pip install -r requisitos
 En el caso que la verificación haya sido exitosa se verá un recuadro verde con la frase “OK: PDB file is correct”.
 
 3. La búsqueda de proteínas homólogas se hace haciendo click en el boton ***“Generate FASTA”*** que genera archivo Fasta que contendrá las homólogas.
-
-4. Mientras se procesa la solicitud Blast (al servicio del NCBI) aparecerá en la pantalla la siguiente leyenda “Wait, we are generating the FASTA” .
-Una vez finalizada la misma se habilitaran los botones que permiten realizar las siguiente acciones:
- 
+Este proceso puede demorar varios minutos.
  
 #### Detalles de interfaz
+
+Luego de correr la instancia incial se puede seguir el chequeo y analisis del pdb mediante los siguientes botones:
  
 - “Open Graphic” muestra en pantalla el árbol filogenético de las homólogas obtenidas en la consulta Blast. Además generar un archivo newick en el directorio ./temp para poder ser utilizado en un software externo.
  
