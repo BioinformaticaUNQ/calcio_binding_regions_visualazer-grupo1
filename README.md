@@ -12,7 +12,12 @@ La idea del software es permitir la visualización de regiones conservadas de un
 
 #### Requisitos
 - [Biopython](https://biopython.org/)
-- ?
+- [pymol](https://pymol.org/2/)
+- [matplotlib](https://matplotlib.org/)
+- [panel]()
+- [bokeh]
+- [jupyter](https://jupyter.org/)
+
 
 #### Instrucciones
 
