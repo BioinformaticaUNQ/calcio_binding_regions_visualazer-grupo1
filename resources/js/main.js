@@ -111,6 +111,13 @@ window.lynxCBRV = {
       });
       btnGenerateFASTA.disabled = true;
       btnOpenGraphic.disabled = true;
+      btnShowAlignment.disabled = true;
+    },
+    showAlignment: async () => {
+      let com = 'python3 resources/scripts/alignments.py ';
+      let response = await Neutralino.os.execCommand({
+        command: com
+      });
     },
     generateFasta: async () => {
       Metro.dialog.open("#fastaDialog");
@@ -118,6 +125,7 @@ window.lynxCBRV = {
       let response = await Neutralino.os.execCommand({
         command: com
       });
+      btnShowAlignment.disabled = false;
       btnOpenGraphic.disabled = false;
       Metro.dialog.close("#fastaDialog");
     },
@@ -181,4 +189,5 @@ btnGenerateFASTA.disabled = true;
 btnExecFoldX.disabled = true;
 btnOpenInPyMol.disabled = true;
 btnOpenGraphic.disabled = true;
+btnShowAlignment.disabled = true;
 window.lynxCBRV.clear();
