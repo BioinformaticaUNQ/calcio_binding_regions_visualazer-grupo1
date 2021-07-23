@@ -3,6 +3,7 @@ const darkModIndicator = document.getElementById('darkIndicator');
 
 const btnGenerateFASTA = document.getElementById('btnGenerateFASTA');
 const btnOpenGraphic = document.getElementById('btnOpenGraphic');
+const btnExecFoldX = document.getElementById('btnExecFoldX');
 
 window.lynxCBRV = {
     checkPDB: async () => {
@@ -106,12 +107,22 @@ window.lynxCBRV = {
       });
     },
     clear : async () =>{
+      btnGenerateFASTA.disabled = true;
+      btnExecFoldX.disabled = true;
+      btnOpenInPyMol.disabled = true;
+      btnOpenGraphic.disabled = true;
+      btnShowAlignment.disabled = true;
       await Neutralino.os.execCommand({
         command: 'python3 resources/scripts/clear.py'
       });
-      btnGenerateFASTA.disabled = true;
-      btnOpenGraphic.disabled = true;
-      btnShowAlignment.disabled = true;
+      div = document.getElementById("tableFoldx");
+      div.innerHTML = "";
+      div = document.getElementById("alignDiv");
+      div.innerHTML = "";
+      div = document.getElementById("pdbNotify");
+      div.innerHTML = "";
+      pdbFile = null;
+      setPathInfo();
     },
     showAlignment: async () => {
       div = document.getElementById("alignDiv");
@@ -192,9 +203,4 @@ function changePrimaryColor(color){
 // Secuencia de inicio
 Neutralino.init();
 setPathInfo();
-btnGenerateFASTA.disabled = true;
-btnExecFoldX.disabled = true;
-btnOpenInPyMol.disabled = true;
-btnOpenGraphic.disabled = true;
-btnShowAlignment.disabled = true;
 window.lynxCBRV.clear();
