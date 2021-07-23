@@ -64,59 +64,68 @@
 
           <div class="col-12" id="tableFoldx"></div>
 
-          <div class="col-md-3">
-            <div class="col-12 transparent-style text-center">
-              <button
-                class="button"
-                name="button"
-                id="btnGenerateFASTA"
-                onclick="window.lynxCBRV.generateFasta();"
-                style="margin: 8px;" >
-                Generate FASTA
-              </button>
+          <div class="col-12">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="col-12 transparent-style text-center">
+                    <button
+                      class="button"
+                      name="button"
+                      id="btnGenerateFASTA"
+                      onclick="window.lynxCBRV.generateFasta();"
+                      style="margin: 8px;" >
+                      Generate FASTA
+                    </button>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="col-12 transparent-style text-center">
+                    <button
+                      class="button"
+                      name="button"
+                      id="btnOpenGraphic"
+                      onclick="window.lynxCBRV.graficarFasta();"
+                      style="margin: 8px;" >
+                      Open Graphic
+                    </button>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="col-12 transparent-style text-center">
+                    <button
+                      class="button"
+                      name="button"
+                      id="btnShowAlignment"
+                      onclick="window.lynxCBRV.showAlignment();"
+                      style="margin: 8px;" >
+                      Show alignment
+                    </button>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="col-12 transparent-style text-center">
+                    <button
+                      class="button"
+                      name="button"
+                      id="btnExecFoldX"
+                      onclick="window.lynxCBRV.execFoldX();"
+                      style="margin: 8px; width: 98%; padding: 25px" >
+                      <b>Generate FoldX Files</b>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-md-3">
-            <div class="col-12 transparent-style text-center">
-              <button
-                class="button"
-                name="button"
-                id="btnOpenGraphic"
-                onclick="window.lynxCBRV.graficarFasta();"
-                style="margin: 8px;" >
-                Open Graphic
-              </button>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="col-12 transparent-style text-center">
-              <button
-                class="button"
-                name="button"
-                id="btnShowAlignment"
-                onclick="window.lynxCBRV.showAlignment();"
-                style="margin: 8px;" >
-                Show alignment
-              </button>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="col-12 transparent-style text-center">
-              <button
-                class="button"
-                name="button"
-                id="btnExecFoldX"
-                onclick="window.lynxCBRV.execFoldX();"
-                style="margin: 8px;" >
-                Generate FoldX Files
-              </button>
-            </div>
-          </div>
 
           <div class="col-12">
             <div class="container transparent-style text-center">
               <div class="row">
+                <div class="col-12 text-center">
+                  <h2>Customize Regions</h2>
+                </div>
                 <div class="col-md-6">
                   Ángstrom (Å)
                   <input

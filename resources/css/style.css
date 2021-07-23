@@ -75,7 +75,7 @@ input::-webkit-inner-spin-button{
 
 /* Titles */
 
-h1{
+h1, h2{
   font-weight: bold;
   color: var(--primary-color);
 }
