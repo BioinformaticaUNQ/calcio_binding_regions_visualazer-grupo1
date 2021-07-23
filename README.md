@@ -1,12 +1,10 @@
 
 
 
-# Calcium bilding regions visualizer
+![Calcium bilding regions visualizer](https://github.com/BioinformaticaUNQ/calcio_binding_regions_visualazer-grupo1/blob/master/extras/title.png)
 
 ### Introducción
 La idea del software es permitir la visualización de regiones conservadas de unión a ligando en estructuras homólogas y la energía de unión a la proteína problema.
-
-![calmodulina](https://github.com/BioinformaticaUNQ/calcio_binding_regions_visualazer-grupo1/blob/master/extras/calmodulina.png)
 
 #### Diagrama
 [link](https://drive.google.com/file/d/1h2ju2dqpvOuVUFev65_zBPxWC4CvQwab/view?usp=sharing)
